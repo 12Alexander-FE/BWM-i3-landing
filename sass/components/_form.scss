@@ -1,0 +1,428 @@
+.form-wrapper {
+    width: 100%;
+
+    &.contact-page {
+
+        .row {
+            >div {
+                justify-content: flex-start;
+            }
+        }
+
+        .form-group {
+
+            &.add-file-block {
+                width: 65%;
+
+                @include breakpoint(sm) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .wpcf7-form {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        h4 {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    .bottom-block {
+        justify-content: flex-end;
+    }
+
+    .wpcf7-response-output {
+        left: 50%;
+        margin: 0;
+        position: absolute;
+        bottom: -9vh;
+        transform: translate(-50%, 0);
+        border-radius: 20px;
+        padding: 5px 20px;
+
+        @include breakpoint(lg) {
+            bottom: -40px;
+            width: 90%;
+        }
+    }
+
+    .wpcf7-not-valid-tip {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    div.wpcf7-mail-sent-ok {
+        border: 2px solid #2dada6;
+    }
+
+    div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
+        border: 2px solid #F44336;
+    }
+
+    div.wpcf7 .ajax-loader {
+        margin: 20px auto 0;
+    }
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 30px;
+
+    &+.form-group {
+
+        @include breakpoint(lg) {
+            margin-top: 0;
+        }
+    }
+
+    textarea {
+        display: block;
+        width: 100%;
+        height: 70px;
+        resize: none;
+        border: none;
+        border-bottom: 1px solid #a1a1a1;
+        margin-top: 10px;
+        outline: none;
+        background: transparent;
+        color: $white;
+
+        @include breakpoint(lg) {
+            margin-bottom: 30px;
+        }
+
+        &:focused, &.filled {
+            border-color: $blue;
+        }
+    }
+
+    br {
+        display: none;
+    }
+
+    i {
+        font-size: 16px;
+        margin-right: 10px;
+    }
+
+    input {
+        color: transparent;
+    }
+
+    &.focused {
+
+        input {
+            color: $white;
+        }
+
+        .form-input {
+
+            &.date-input {
+
+                &::-webkit-datetime-edit {
+                    color: $black;
+                }
+            }
+        }
+    }
+
+    &.calendar {
+        position: relative;
+
+        i {
+            position: absolute;
+            right: 2px;
+            bottom: 35px;
+            pointer-events: none;
+            outline: none;
+        }
+    }
+
+    &.add-file-block {
+        margin-top: 8px;
+    }
+
+    @include breakpoint(sm) {
+        margin-bottom: 15px;
+    }
+}
+
+.form-label {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: $white;
+    font-size: 16px;
+    z-index: 10;
+    transition: transform 150ms ease-out, font-size 150ms ease-out;
+    font-weight: 400;
+
+    @include breakpoint(md) {
+        font-size: 14px;
+    }
+}
+
+.text-label {
+    font-size: 16px;
+    color: $white;
+    background-color: transparent;
+    font-weight: 400;
+
+    @include breakpoint(md) {
+        font-size: 14px;
+    }
+}
+
+.focused .form-label {
+    transform: translateY(-125%);
+    font-size: .75em;
+}
+
+.form-input {
+    position: relative;
+    padding: 10px 5px;
+    width: 98%;
+    height: 45px;
+    outline: 0;
+    border: 0;
+    border-bottom: 1px solid #a1a1a1;
+    transition: box-shadow 150ms ease-out, border 0.3s;
+    margin-bottom: 30px;
+    background: transparent;
+
+    &:focus {
+        border-bottom: 2px solid $blue;
+    }
+
+    &::-webkit-inner-spin-button {
+        display: none;
+    }
+
+    &.date-input {
+
+        &::-webkit-datetime-edit {
+            color: transparent;
+        }
+
+        &::-webkit-calendar-picker-indicator {
+            color: transparent;
+            background: transparent;
+        }
+    }
+
+    &.date-input {
+        padding: 10px 15px 10px 5px;
+    }
+
+    &.has-error {
+        border-bottom: 1px solid red;
+    }
+}
+
+.form-input.filled {
+    border-bottom: 2px solid $blue;
+}
+
+.inputfile {
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.wpcf7-form-control-wrap {
+    position: static;
+}
+
+.add-file-block {
+
+    cursor: pointer;
+
+    label {
+        #list {
+            position: absolute;
+            top: 125%;
+            li {
+                font-weight: 400;
+                font-size: 14px;
+                background: url(../images/icons/icon-add.png) no-repeat center left;
+                padding-left: 25px;
+                background-size: auto;
+            }
+        }
+    }
+
+    label{
+        color: $white;
+        display: inline-block;
+        border-bottom: 1px solid #a1a1a1;
+        padding-bottom: 10px;
+        width: 100%;
+        cursor: pointer;
+        position: relative;
+        pointer-events: none;
+
+        i {
+            color: $blue;
+        }
+
+        @include breakpoint(md) {
+          font-size: 14px;
+        }
+    }
+
+    &:hover {
+        .add-file {
+            color: $blue;
+        }
+    }
+
+  label * {
+    pointer-events: none;
+  }
+
+    .wpcf7-not-valid-tip {
+
+        bottom: 40px;
+
+        @include breakpoint(lg) {
+            bottom: auto;
+            top: -45px;
+        }
+    }
+}
+
+.add-file {
+    height: 26px;
+    text-align: center;
+    color: $blue;
+    font-weight: 400;
+    border-radius: 20px;
+    font-size: 14px;
+    padding: 0 8px;
+    text-transform: uppercase;
+    float: right;
+    transition: .3s;
+    text-decoration: none;
+    cursor: pointer;
+
+    @include breakpoint(md) {
+        font-size: 12px;
+    }
+}
+
+
+.checkbox-block {
+    display: block;
+    position: relative;
+    padding-left: 40px;
+    padding-top: 2px;
+    margin-top: 0;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    a {
+        color: $base-color;
+        text-decoration: underline;
+        transition: .3s;
+
+        &:hover {
+            opacity: .5;
+        }
+    }
+
+    @include breakpoint(lg) {
+        margin-top: 50px;
+    }
+
+    @include breakpoint(md) {
+        font-size: 14px;
+    }
+}
+
+.checkbox-block input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    background-color: transparent;
+    border: 1px solid #a1a1a1;
+    border-radius: 5px;
+}
+
+.checkbox-block:hover .checkmark {
+    background-color: transparent;
+    border: 1px solid #a1a1a1;
+    border-radius: 5px;
+}
+
+.checkbox-block .checkmark.active {
+    background-color: transparent;
+    border: 1px solid #a1a1a1;
+    border-radius: 5px;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-block .checkmark.active:after {
+    display: block;
+}
+
+.checkbox-block .checkmark:after {
+    left: 10px;
+    top: 1px;
+    width: 11px;
+    height: 19px;
+    border: solid #2dada6;
+    border-width: 0 4px 4px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.send-form {
+    margin: 35px auto 0;
+    background: $base-color;
+    color: $base-color;
+    border: 3px solid $base-color;
+    outline: none;
+
+    &:hover {
+        color: $base-color;
+        background: transparent;
+    }
+
+    &.click-accept {
+        &.disabled {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+    }
+}
+
