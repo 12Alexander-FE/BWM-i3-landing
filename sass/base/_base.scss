@@ -1401,7 +1401,7 @@ main {
 
 .centered-heading {
     text-align: center;
-    margin-bottom: 65px;
+    margin: 0 auto 65px;
 
     h3 {
         font-size: 36px;
@@ -1506,7 +1506,6 @@ main {
         }
 
         @include breakpoint(md) {
-            padding:  50px 0;
             text-align: center;
             max-width: 100%;
             padding: 30px 10px 50px;
@@ -1530,7 +1529,7 @@ main {
         }
 
         @include breakpoint(md) {
-            padding: 20px 10px 20px;
+            padding: 30px 10px 30px;
         }
     }
 
@@ -1664,7 +1663,7 @@ main {
 .bottom-section {
     background: $white url(../../images/content/bottom-section.png) no-repeat center center;
     background-size: cover;
-    height: 1250px;
+    height: auto;
     padding-top: 0;
 
     .three-columns {
@@ -1675,6 +1674,10 @@ main {
         .hero-block {
             max-width: 320px;
             margin: 0 25px;
+
+            img {
+                margin: 0 auto;
+            }
 
             @include breakpoint(sm) {
                 margin: 30px auto;
@@ -1700,11 +1703,24 @@ main {
                 transform: translateY(-80px);
             }
         }
+
+        .slick-dots {
+            margin-top: 30px;
+
+            @include breakpoint(sm) {
+                margin-top: 0;
+            }
+        }
+
     }
 
     .centered-heading {
-        margin-top: 70px;
+        margin-bottom: 130px;
         max-width: 850px;
+
+        @include breakpoint (sm){
+
+        }
 
         h3,p {
             color: $white;
@@ -1754,7 +1770,7 @@ footer {
     .footer-client-links {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         border-bottom: 1px solid #929292;
         padding-bottom: 60px;
         margin-bottom: 50px;
